@@ -1,0 +1,15 @@
+<p>task-list works!</p>
+<section>
+    <app-task-add (emitTask)="addTask($event)"></app-task-add>
+    <h2>Tareas: </h2>
+    <ul>
+        @for (task of tasks; track $index) {
+        <li>
+            {{task.name}}
+            @if(task.description){
+            <p>{{task.description}}</p>
+            }
+        </li>
+        }
+    </ul>
+</section>

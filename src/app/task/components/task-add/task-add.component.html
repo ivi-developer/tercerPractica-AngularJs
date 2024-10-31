@@ -1,0 +1,16 @@
+<p>task-add works!</p>
+<form [formGroup]="form" (ngSubmit)="sendTask()">
+    <fieldset>
+        <label for="task-name">Ingrese la tarea</label>
+        <input type="text" name="task-name" formControlName="name">
+        @if (form.controls['name'].getError('required')&&form.controls['name'].touched) {
+        <div class="error">Campo requerido</div>
+        }
+        @if (form.controls['name'].getError('minlength')&&form.controls['name'].touched) {
+        <div class="error">Tiene que tener un minimo de 3 caracteres</div>
+        }
+        <label for="task-description">Ingrese la descripcion de la tarea</label>
+        <input type="text" name="task-description" formControlName="description">
+        <button>Agregar</button>
+    </fieldset>
+</form>
