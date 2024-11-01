@@ -9,6 +9,12 @@
             @if(task.description){
             <p>{{task.description}}</p>
             }
+            <ul>
+                <li><a [routerLink]="" (click)="deleteTask(task.id)" >Eleminar</a></li>
+                <li><a [routerLink]="['update',task.id]">Modificar</a></li>
+            </ul>
+            
+            
         </li>
         }
     </ul>

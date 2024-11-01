@@ -2,13 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from '../interface/task.interface';
+import { environment } from '../../../environments/environment';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  urlBase: string = 'http://localhost:3000/tareas'
+  urlBase=environment.urlBase
   http = inject(HttpClient)
 
   getTasks(): Observable<Task[]> {
@@ -23,7 +25,7 @@ export class TaskService {
   putTask(task: Task, id: number): Observable<Task> {
     return this.http.put<Task>(`${this.urlBase}/${id}`, task)
   }
-  deleteTask(id: number): Observable<Task> {
-    return this.http.delete<Task>(`${this.urlBase}/${id}`)
+  deleteTask(id: number|undefined): Observable<void> {
+    return this.http.delete<void>(`${this.urlBase}/${id}`)
   }
 }

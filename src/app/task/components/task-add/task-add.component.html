@@ -1,6 +1,12 @@
 <p>task-add works!</p>
 <form [formGroup]="form" (ngSubmit)="sendTask()">
     <fieldset>
+     
+        <label for="task-id">Ingrese la tarea</label>
+        <input type="number" name="task-id" formControlName="id">
+        @if (form.controls['id'].getError('required')&&form.controls['id'].touched) {
+            <div class="error">Campo requerido</div>
+            }
         <label for="task-name">Ingrese la tarea</label>
         <input type="text" name="task-name" formControlName="name">
         @if (form.controls['name'].getError('required')&&form.controls['name'].touched) {

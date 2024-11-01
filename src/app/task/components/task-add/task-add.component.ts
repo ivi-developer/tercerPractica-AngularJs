@@ -23,6 +23,7 @@ export class TaskAddComponent {
   fb = inject(FormBuilder)
   form = this.fb.nonNullable.group(
     {
+      id:[0, [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['']
     }
