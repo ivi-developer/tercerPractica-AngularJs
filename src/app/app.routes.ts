@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { TaskPageComponent } from './task/pages/task-page/task-page.component';
 import { InicioPageComponent } from './pages/inicio-page/inicio-page.component';
-import { UpdateTareaComponent } from './task/components/update-tarea/update-tarea.component';
+import { UpdateTaskPageComponent } from './task/pages/update-task-page/update-task-page.component';
+
 
 export const routes: Routes = [
     {
@@ -13,12 +14,12 @@ export const routes: Routes = [
         component: TaskPageComponent
     },
     {
-        path: '',
-        component: InicioPageComponent
+        path: 'update/:id',
+        component: UpdateTaskPageComponent
     },
     {
-        path:'update',
-        component:UpdateTareaComponent
+        path: '',
+        component: InicioPageComponent
     },
     {
         path: '**',

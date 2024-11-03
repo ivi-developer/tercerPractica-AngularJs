@@ -10,6 +10,7 @@ import { TaskService } from '../../service/task.service';
   templateUrl: './task-add.component.html',
   styleUrl: './task-add.component.css'
 })
+
 export class TaskAddComponent {
   @Output()
   emitTask: EventEmitter<Task> = new EventEmitter()
@@ -20,19 +21,24 @@ export class TaskAddComponent {
     this.addTareaDb(task)
     this.emitTask.emit(task)
   }
+
   fb = inject(FormBuilder)
+
   form = this.fb.nonNullable.group(
     {
-      id:[0, [Validators.required]],
+      id: ['', [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['']
     }
   )
+
   tareaService = inject(TaskService)
+
   addTareaDb(task: Task) {
     this.tareaService.postTask(task).subscribe(
       {
-        next: (task: Task) => alert("Tarea guardada")
+        next: (task: Task) => console.log('tarea agregada')
+
         ,
         error: (error: Error) => console.log(error.message)
 

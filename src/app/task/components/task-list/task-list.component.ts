@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [TaskAddComponent,RouterModule],
+  imports: [TaskAddComponent, RouterModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
@@ -34,12 +34,14 @@ export class TaskListComponent implements OnInit {
     )
   }
 
-  deleteTask(id:number|undefined){
+  deleteTask(id: string) {
+    console.log(id);
+
     this.taskService.deleteTask(id).subscribe(
       {
-        next:()=>console.log("Tarea eliminada")
+        next: () => console.log("Tarea eliminada")
         ,
-        error:(e:Error)=>console.log(e.message)
+        error: (e: Error) => console.log(e.message)
       }
     )
   }

@@ -1,14 +1,9 @@
 {
   "tareas": [
     {
-      "id": 1,
-      "name": "hola",
-      "description": "chau"
-    },
-    {
-      "id": 1,
-      "name": "aaa",
-      "description": "b"
+      "id": "1",
+      "name": "Comer culito",
+      "description": "el de tu mami"
     }
   ]
 }

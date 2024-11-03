@@ -1,0 +1,14 @@
+<fieldset>
+    <legend>Actializar tarea</legend>
+    <form [formGroup]="form" (ngSubmit)="update()">
+        <label for="task-id">Ingrese el id</label>
+        <input type="text" name="task-id" formControlName="id">
+
+        <label for="task-name">Ingrese la tarea</label>
+        <input type="text" name="task-name" formControlName="name">
+
+        <label for="task-description">Ingrese la descripcion de la tarea</label>
+        <input type="text" name="task-description" formControlName="description">
+        <button>Actualizar</button>
+    </form>
+</fieldset>
